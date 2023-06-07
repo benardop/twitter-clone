@@ -1,3 +1,6 @@
-User#account_activation
+Hi <%= @user.name %>
 
-<%= @greeting %>, find me in app/views/user_mailer/account_activation.text.erb
+Welcome to the sample twitter App! 
+click on the link below to activate your ccount:
+
+<%= edit_account_activation_url(@user.account_activation_token, email: @user.email) %>
