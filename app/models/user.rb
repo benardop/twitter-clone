@@ -34,9 +34,9 @@ class User < ApplicationRecord
   end
 
   # Returns true if a given token matches the digest
-  def authenticated? (attribute, token) 
+  def authenticated?(attribute, token) 
     digest = send("#{attribute}_digest")
-    return false if remember_digest.nil?
+    return false if digest.nil?
     BCrypt::Password.new(digest).is_password?(token)
   end
 

@@ -1,6 +1,11 @@
 require "test_helper"
 
 class UsersSignupTest < ActionDispatch::IntegrationTest
+
+  def setup 
+    ActionMailer::Base.deliveries.clear
+  end
+  
     test "the invalid sign up information" do
     get signup_path
     assert_no_difference "User.count" do
