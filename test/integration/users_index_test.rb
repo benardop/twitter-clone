@@ -1,6 +1,6 @@
 require "test_helper"
 
-class UsersIndexTest < ActionDispatch::IntegrationTest
+class UsersIndex < ActionDispatch::IntegrationTest
 
   def setup
     @admin     = users(:benard)
@@ -22,8 +22,6 @@ class UsersIndexTest < ActionDispatch::IntegrationTest
     end
     assert_difference 'User.count', -1 do
       delete user_path(@non_admin)
-      # assert_response :see_other
-      # assert_redirected_to users_url
     end
   end
 
